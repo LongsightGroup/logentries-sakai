@@ -56,6 +56,11 @@
             <version>1.2.16</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.logentries</groupId>
+            <artifactId>logentries-appender</artifactId>
+            <version>RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -81,6 +86,7 @@
                                     <include>net.kencochrane.raven:raven-log4j</include>
                                     <include>com.fasterxml.jackson.core:jackson-core</include>
                                     <include>com.google.guava:guava</include>
+                                    <include>com.logentries:logentries</include>
                                     <include>org.slf4j:slf4j-api</include>
                                     <include>org.slf4j:slf4j-log4j12</include>
                                 </includes>
