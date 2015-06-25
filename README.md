@@ -1,7 +1,7 @@
-# Raven Java for Sakai
+# Logentries and Raven Java (for Sentry) for Sakai
 
-This project re-packages raven-java and it's dependencies so that they can be deployed into Sakai's classloaders, this
-allows you to send log4j events to sentry.
+This project re-packages raven-java and the logentries-appendar and all dependencies so that they can be deployed 
+into Sakai's classloaders, this allows you to send log4j events to sentry.
 
 ## Deployment
 
@@ -11,14 +11,20 @@ you need to configure log4j to use the raven logger, placing a log4j.properties 
 get read at startup and watched for changes. A simple example of this is:
 
     # Define the loggers
-    log4j.rootLogger=WARN, console, sentry
+    log4j.rootLogger=WARN, console, sentry, le
     
     # Sentry setup
-    # The DSN should be supplied through the envrionment variable SENTRY_DSN
-    # log4j.appender.sentry.dsn=https://publicKey:secretKey@host:port/1?options
+    log4j.appender.sentry.dsn=https://publicKey:secretKey@host:port/1?options
     log4j.appender.sentry=net.kencochrane.raven.log4j.SentryAppender
     log4j.appender.sentry.Threshold=ERROR
-    
+
+    # Logentries setup
+    log4j.appender.le=com.logentries.log4j.LogentriesAppender
+    log4j.appender.le.layout=org.apache.log4j.PatternLayout
+    log4j.appender.le.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss ZZZ} %-5p: %F:%L  %m
+    log4j.appender.le.Token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    log4j.appender.le.Threshold=INFO
+
     # Console setup
     log4j.appender.console=org.apache.log4j.ConsoleAppender
     log4j.appender.console.layout=org.apache.log4j.PatternLayout
@@ -47,4 +53,6 @@ configuration to enable this is:
 
     log4j.appender.sentry.ravenFactory=org.sakaiproject.sentry.DockerRavenFactory
     
+## Credit
 
+Original author of raven-java for Sakai: @buckett
