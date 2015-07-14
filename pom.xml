@@ -6,7 +6,7 @@
     <groupId>org.sakaiproject.sentry</groupId>
     <artifactId>logentries-sakai</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <description>This jar packages the Logentries log4j appender and the Raven (Sentry) log4j appender and all dependencies into a shaded JAR for deployment into Sakai.</description>
     <url>https://github.com/LongsightGroup/logentries-sakai</url>
     <licenses>
@@ -17,13 +17,13 @@
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:git@github.com:sakaiproject/logentries-sakai.git</connection>
-        <developerConnection>scm:git:git@github.com:sakaiproject/logentries-sakai.git</developerConnection>
-        <url>git@github.com:sakaiproject/logentries-sakai.git</url>
+        <connection>scm:git:git@github.com:LongsightGroup/logentries-sakai.git</connection>
+        <developerConnection>scm:git:git@github.com:LongsightGroup/logentries-sakai.git</developerConnection>
+        <url>git@github.com:LongsightGroup/logentries-sakai.git</url>
     </scm>
 
     <properties>
-        <raven.version>5.0.2</raven.version>
+        <raven.version>6.0.0</raven.version>
     </properties>
 
     <dependencies>
